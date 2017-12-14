@@ -1,67 +1,148 @@
+import base64
 import socket
+import sys
 
-mailserver = ("smtp.gmx.com", 25)
+import time
+
+from mail import Mail
+
+debug_host = 'smtp.gmail.com'  #"alt4.gmail-smtp-in.l.google.com"
+debug_port = 587
+debug_hostname = '212.193.78.231'
+
 
 class Smtp:
-    def __init__(self):
+
+    def __init__(self, dbg=False, host=None, port=None, login=None, passwd=None):
         self.sock = socket.socket()
+        self.sock.settimeout(3)
 
-    def send(self, mail_from, mail_to, msg):
-        msg = 'MAIL FROM: ' + mail_from + '\r\n'
-        msg += 'RCPT TO: ' + mail_to + '\r\n'
-        msg += 'DATA\r\n' + msg
-        self.sock.send(msg.encode())
+        self.host = host
+        self.port = port
 
-    def connect(self, server, name='defaultname'):
-        self.sock.connect(server)
-        self.print_answer()
+        # self.login = login
+        # self.passwd = passwd
+        # self.CC = []
+        # self.BCC = []
+        # self.is_connected = False
 
-    def print_answer(self):
-        mes = self.sock.recv(1024)
-        print(mes)
+        if host and port:
+            self.connect(host,port)
+        #if login and passwd:
+        #    self.auth(login,passwd)
+
+    def connect(self, host, port):
+        print('-Connecting...')
+
+        self.sock.connect((host, int(port)))
+
+        resp = self.get_response()
+        print(resp)
+        if resp[:3] in ['220', '221', '235', '250']:
+            print('-Successful connection!')
+        else:
+            print('-Connection failed')
+
+    def socket_send(self, message):
+        message = (message+'\r\n')
+        self.sock.send(message.encode())
+        return self.get_response()
+
+    def get_response(self):
+        attemptCount = 0
+        try:
+            resp = self.sock.recv(1024).decode()
+        except socket.timeout:
+            attemptCount+=1
+            if attemptCount < 5:
+                self.get_response()
+            else:
+                print('--No answer from server')
+                self.disconnect()
+                sys.exit()
+
+        return resp
+
+    def ehlo(self, hostname):
+        print('-Sending EHLO...')
+
+        self.socket_send('EHLO {}'.format(hostname))
+
+        resp = self.get_response()
+        print(resp)
+        if resp[:3] in ['220', '221', '235', '250']:
+            print('-EHLO Successful!')
+        else:
+            print('-EHLO failed')
+
+    def start_tls(self):
+        if self.debug:
+            print('Starting TLS')
+        print(self.socket_send('STARTTLS'))
+
+    def auth(self, username, password):
+        print('logging in...')
+        self.username = username
+        base64_str = ("\x00" + username + "\x00" + password).encode()
+        base64_str = base64.b64encode(base64_str)
+        auth_msg = "AUTH PLAIN ".encode() + base64_str
+        print(self.socket_send(auth_msg))
 
     def disconnect(self):
         self.sock.close()
-        print('Connection has been ended')
+        print('-Connection has been ended')
 
 
 
-class Mail:
-    def __init__(self):
-        pass
+def main1():
+    print('Hello! SMTP v0.3.5 is for your service!\r\n')
 
-    def concat(self,name, mail_from, subj, data):
-        self.mail = 'FROM:' + name + ' <'+ mail_from +'>\r\n'
-        self.mail+= 'SUBJECT: ' + subj + '\r\n\r\n'
-        self.mail+= data + '\r\n.\r\n'
+    smtp = Smtp(True,debug_host,debug_port,'sounditbox@gmail.com')
+    mail = Mail()
 
+    if not(smtp.host and smtp.port):
+        host = input('input a host to use: ')
+        port = input('input a port to use: ')
+        smtp.connect(host, port)
+
+    hostname = input('input your hostname: ')
+
+    smtp.ehlo(hostname)
+
+    smtp.start_tls()
+
+    if not(smtp.login and smtp.passwd):
+        smtp.login = input('login: ')
+        smtp.passwd = input('passwd: ')
+    smtp.auth(smtp.login, smtp.passwd)
+
+    mail_from, mail_to = mail.write_mail(hostname)
+    print(smtp.socket_send('MAIL FROM:<{}>'.format(mail_from)))
+
+    print(smtp.socket_send('RCPT TO: <{}>'.format(mail_to)))
+
+    print(smtp.sock.send('DATA'.encode()))
+
+    smtp.sock.send(mail.mail.encode())
+    print(smtp.get_response())
+
+
+    smtp.disconnect()
 
 
 def main():
-    smtp = Smtp()
-    mail = Mail()
-
-    print('Hello! SMTP v0.1 is for your service!')
-
-    name = input('input your name:\r\n')
-    mail_from = input('input your email:\r\n')
-    mail_to = input('input recipient email:\r\n')
-    print('Ok, {}, let\'s write a message!'.format(name))
-    subj = input('input a subject:\r\n')
-    data = ''
-    print('write a message and end it with ctrl+z:\r\n')
-    while True:
+    smtp = Smtp(True, debug_host, debug_port, debug_hostname)
+    while 1:
         try:
-            data += input()
-        except EOFError:
-            break
-    mail.concat(name, mail_from, subj, data)
-    smtp.send(mail_from, mail_to, mail)
-    smtp.print_answer()
-    smtp.disconnect()
+            print('Server: ' + smtp.socket_send(input('You: ')))
+        except socket.timeout:
+            print('TIMEOUT')
+            continue
+        except IOError:
+            smtp.disconnect()
 
 
 
 
 if __name__=='__main__':
-    main()
+    main1()
