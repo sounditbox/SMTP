@@ -4,7 +4,7 @@
 import sys
 import smtp
 from PyQt5.QtWidgets import QApplication, QLabel, QPushButton, QGridLayout, \
-    QLineEdit, QTextEdit, QCheckBox, QStackedLayout, QStackedWidget, QWidget
+    QLineEdit, QTextEdit, QCheckBox, QStackedLayout, QStackedWidget, QWidget, QDialog, QFileDialog
 from PyQt5.QtGui import QIcon
 
 from gui.I_window import I_window
@@ -22,6 +22,8 @@ class Main_window(I_window):
         self.setWindowTitle('SMTP')
         self.setWindowIcon(QIcon('icon.jpg'))
         self.init_ui()
+
+        self.attachments = []
 
     def init_ui(self):
 
@@ -70,15 +72,15 @@ class Main_window(I_window):
         subj = self.mail.subj_edit.text()
         mes = self.mail.msg_edit.toPlainText()
         text_type = 'html' if self.mail.text_type.isTristate() else 'plain'
-        attachments = None
+        attachments = self.attachments if len(self.attachments) > 0 else None
         smtp = Smtp(ip,port,
                     username,password,
                     boundary,mail_from,mail_to,cc,bcc,subj,mes,
-                    text_type,attachments)
+                    text_type, attachments)
         smtp.send_mail()
 
     def attach(self):
-        print('attach')
+        self.attachments.append(QFileDialog.getOpenFileName(self)[0])
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

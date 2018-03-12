@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4992f07d-065e-4d65-b968-40448204e87c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gui/main_gui.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html_example.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/auth_window.py" afterPath="$PROJECT_DIR$/gui/auth_window.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/connect_window.py" afterPath="$PROJECT_DIR$/gui/connect_window.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/mail_window.py" afterPath="$PROJECT_DIR$/gui/mail_window.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/main_gui.py" afterPath="$PROJECT_DIR$/gui/main_gui.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mail.py" afterPath="$PROJECT_DIR$/mail.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smtp.py" afterPath="$PROJECT_DIR$/smtp.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,8 +17,8 @@
       <file leaf-file-name="mail.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mail.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="19" column="53" lean-forward="true" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+            <state relative-caret-position="409">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -38,12 +29,25 @@
       <file leaf-file-name="smtp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/smtp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-798">
-              <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+            <state relative-caret-position="147">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
+                <element signature="e#0#13#0" expanded="true" />
                 <element signature="e#951#1016#0" expanded="false" />
                 <element signature="e#1051#1116#0" expanded="false" />
                 <element signature="e#1146#1345#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_gui.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gui/main_gui.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="709">
+              <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+              <folding>
+                <element signature="e#44#54#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mail_window.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mail_window.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/mail_window.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="61" column="28" lean-forward="false" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+            <state relative-caret-position="425">
+              <caret line="68" column="37" lean-forward="false" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
               <folding>
                 <element signature="e#44#54#0" expanded="true" />
               </folding>
@@ -78,18 +82,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
               <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-              <folding>
-                <element signature="e#44#54#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main_gui.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/main_gui.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="70" column="46" lean-forward="true" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
               <folding>
                 <element signature="e#44#54#0" expanded="true" />
               </folding>
@@ -153,7 +145,6 @@
         <option value="$PROJECT_DIR$/../../turn back/SMTP-client-master/SMTP_pack/email_format.py" />
         <option value="$PROJECT_DIR$/bnwlk.py" />
         <option value="$PROJECT_DIR$/smtp1.py" />
-        <option value="$PROJECT_DIR$/mail.py" />
         <option value="$PROJECT_DIR$/gui/gui.py" />
         <option value="$PROJECT_DIR$/gui/stacked.py" />
         <option value="$PROJECT_DIR$/gui/hui.py" />
@@ -162,6 +153,7 @@
         <option value="$PROJECT_DIR$/gui/connect_window.py" />
         <option value="$PROJECT_DIR$/smtp.py" />
         <option value="$PROJECT_DIR$/gui/main_gui.py" />
+        <option value="$PROJECT_DIR$/mail.py" />
       </list>
     </option>
   </component>
@@ -345,8 +337,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.103651986" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.103651986" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11220044" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -393,12 +386,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/smtp.py</url>
-          <line>71</line>
-          <option name="timeStamp" value="28" />
+          <url>file://$PROJECT_DIR$/mail.py</url>
+          <line>36</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="29" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -581,16 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui/auth_window.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-          <folding>
-            <element signature="e#44#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files (x86)/Python36-32/Lib/ssl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -614,24 +597,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mail.py">
+    <entry file="file://$PROJECT_DIR$/gui/auth_window.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="19" column="53" lean-forward="true" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+        <state relative-caret-position="231">
+          <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smtp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-798">
-          <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-          <folding>
-            <element signature="e#951#1016#0" expanded="false" />
-            <element signature="e#1051#1116#0" expanded="false" />
-            <element signature="e#1146#1345#0" expanded="false" />
+            <element signature="e#44#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -646,20 +617,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui/main_gui.py">
+    <entry file="file://$PROJECT_DIR$/gui/mail_window.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="70" column="46" lean-forward="true" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
+        <state relative-caret-position="425">
+          <caret line="68" column="37" lean-forward="false" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
           <folding>
             <element signature="e#44#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui/mail_window.py">
+    <entry file="file://$PROJECT_DIR$/mail.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="61" column="28" lean-forward="false" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+        <state relative-caret-position="409">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smtp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#951#1016#0" expanded="false" />
+            <element signature="e#1051#1116#0" expanded="false" />
+            <element signature="e#1146#1345#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/main_gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="709">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="e#44#54#0" expanded="true" />
           </folding>

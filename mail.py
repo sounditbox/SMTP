@@ -32,7 +32,7 @@ class Mail:
 
         if attachments is not None:
             for file in attachments:
-                name, alias = get_name(file)
+                name = file.rsplit('/', 1)[1]
                 attach = self.boundary
                 attach += '\r\nContent-Type: application/octet-stream; ' \
                           'Name="{0}"\r\n' \
@@ -50,6 +50,3 @@ class Mail:
 
         self.email += self.boundary + "--"
 
-def get_name(filename):
-    f = tuple(filename.rsplit(':', 1))
-    return f[0], f[1] if len(f) > 1 else os.path.basename(f[0])
