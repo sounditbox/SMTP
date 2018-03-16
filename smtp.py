@@ -21,7 +21,7 @@ class Smtp:
         self.username = username
         self.password = password
         self.mail_from = mail_from
-        self.mail_to = mail_to
+        self.rcpt_to = mail_to.split(',') + cc.split(',') + bcc.split(',')
         self.email = mail.Mail(boundary, mail_from,
             mail_to, cc, bcc, subj, mes, text_type, attachments)
 
@@ -47,16 +47,28 @@ class Smtp:
 
     def mail(self):
         self.sock.sendall("MAIL FROM:<{}>\r\n".format(self.username).encode())
+        print("MAIL FROM:<{}>\r\n".format(self.username).encode())
         self.get_answer()
 
-        self.sock.sendall("RCPT TO:<{}>\r\n".format(self.mail_to).encode())
-        self.get_answer()
+        if isinstance(self.rcpt_to, list):
+            for i in self.rcpt_to:
+                self.sock.sendall("RCPT TO:<{}>\r\n".format(i.strip()).encode())
+                print("RCPT TO:<{}>\r\n".format(i.strip()).encode())
+                self.get_answer()
+
+        else:
+            self.sock.sendall("RCPT TO:<{}>\r\n".format(self.rcpt_to.strip()).encode())
+            print("RCPT TO:<{}>\r\n".format(self.rcpt_to.strip()).encode())
+            self.get_answer()
 
         self.sock.sendall("DATA\r\n".encode())
+        print("DATA\r\n".encode())
         self.sock.sendall(self.email.email.encode())
+        print(self.email.email.encode())
         self.get_answer()
 
         self.sock.sendall('\r\n.\r\n'.encode())
+        print('\r\n.\r\n'.encode())
         self.get_answer()
 
 
@@ -72,12 +84,10 @@ class Smtp:
         self.connect()
         self.ehlo()
         self.auth()
-        self.auth()
         self.mail()
         self.disconnect()
 
 if __name__ == '__main__':
-    smtplib
     smtp = Smtp('smtp.gmail.com', 465,
                 'python.smtp.test.mail@gmail.com','pythonpython',
                 '--boundary42',

@@ -2,12 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import smtp
 from PyQt5.QtWidgets import QApplication, QLabel, QPushButton, QGridLayout,\
     QLineEdit
 from PyQt5.QtGui import QIcon
 
-from gui import auth_window
 from gui.I_window import I_window
 
 class Connect_window (I_window):
@@ -24,7 +22,7 @@ class Connect_window (I_window):
 
 
         serverLabel = QLabel('SMTP server:')
-        portLabel= QLabel('Port')
+        portLabel= QLabel('Port:')
         self.serverEdit = QLineEdit('smtp.gmail.com')
         self.portEdit = QLineEdit('465')
         self.connBtn = QPushButton('Connect')
@@ -40,14 +38,9 @@ class Connect_window (I_window):
 
         grid.addWidget(self.connBtn, 4, 0)
 
-        # self.connBtn.clicked.connect(self.connect)
-
         self.setLayout(grid)
         self.center()
         self.show()
-
-    # def connect(self):
-    #     self.setDisabled(True)
 
 
 

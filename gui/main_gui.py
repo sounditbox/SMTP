@@ -2,9 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import smtp
-from PyQt5.QtWidgets import QApplication, QLabel, QPushButton, QGridLayout, \
-    QLineEdit, QTextEdit, QCheckBox, QStackedLayout, QStackedWidget, QWidget, QDialog, QFileDialog
+from PyQt5.QtWidgets import QApplication, QGridLayout, QFileDialog
 from PyQt5.QtGui import QIcon
 
 from gui.I_window import I_window
@@ -12,6 +10,7 @@ from gui.auth_window import Auth_window
 from gui.mail_window import Mail_window
 from gui.connect_window import Connect_window
 from smtp import Smtp
+
 
 class Main_window(I_window):
 
@@ -73,6 +72,7 @@ class Main_window(I_window):
         mes = self.mail.msg_edit.toPlainText()
         text_type = 'html' if self.mail.text_type.isTristate() else 'plain'
         attachments = self.attachments if len(self.attachments) > 0 else None
+
         smtp = Smtp(ip,port,
                     username,password,
                     boundary,mail_from,mail_to,cc,bcc,subj,mes,
@@ -81,6 +81,7 @@ class Main_window(I_window):
 
     def attach(self):
         self.attachments.append(QFileDialog.getOpenFileName(self)[0])
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
